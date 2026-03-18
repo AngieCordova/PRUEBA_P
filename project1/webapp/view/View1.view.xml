@@ -2,5 +2,20 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <Label text="{i18n>labelCentro}" labelFor="inputCentro"/>
+                <Input id="inputCentro" placeholder="{i18n>labelCentro}"/>
+
+                <Label text="{i18n>labelMaterial}" labelFor="inputMaterial" class="sapUiSmallMarginTop"/>
+                <Input id="inputMaterial" placeholder="{i18n>labelMaterial}"/>
+
+                <Label text="{i18n>labelDescripcion}" labelFor="inputDescripcion" class="sapUiSmallMarginTop"/>
+                <Input id="inputDescripcion" placeholder="{i18n>labelDescripcion}"/>
+
+                <Label text="{i18n>labelLote}" labelFor="inputLote" class="sapUiSmallMarginTop"/>
+                <Input id="inputLote" placeholder="{i18n>labelLote}"/>
+            </VBox>
+        </content>
     </Page>
 </mvc:View>
