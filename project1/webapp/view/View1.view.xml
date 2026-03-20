@@ -1,6 +1,39 @@
 <mvc:View controllerName="project1.controller.View1"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
+        <content>
+            <VBox id="formContainer" class="sapUiSmallMargin">
+                <Label id="labelCentro" text="{i18n>labelCentro}" labelFor="inputCentro"/>
+                <Input id="inputCentro" placeholder="{i18n>labelCentro}"/>
+
+                <Label id="labelMaterial" text="{i18n>labelMaterial}" labelFor="inputMaterial" class="sapUiSmallMarginTop"/>
+                <Input id="inputMaterial" placeholder="{i18n>labelMaterial}"/>
+
+                <Label id="labelDescripcion" text="{i18n>labelDescripcion}" labelFor="inputDescripcion" class="sapUiSmallMarginTop"/>
+                <Input id="inputDescripcion" placeholder="{i18n>labelDescripcion}"/>
+
+                <Label id="labelLote" text="{i18n>labelLote}" labelFor="inputLote" class="sapUiSmallMarginTop"/>
+                <Input id="inputLote" placeholder="{i18n>labelLote}"/>
+
+                <Toolbar id="cameraToolbar" class="sapUiSmallMarginTop">
+                    <Title id="cameraSectionTitle" text="{i18n>cameraSectionTitle}" level="H5"/>
+                    <ToolbarSpacer id="cameraToolbarSpacer"/>
+                    <Button id="activateCameraButton" text="{i18n>activateCameraButton}" type="Emphasized" press=".onActivateCamera"/>
+                    <Button id="capturePhotoButton" text="{i18n>capturePhotoButton}" class="sapUiTinyMarginBegin" enabled="{camera>/cameraActive}" press=".onTakePhoto"/>
+                </Toolbar>
+
+                <core:HTML id="cameraFeed"
+                    visible="{camera>/cameraActive}"
+                    sanitizeContent="false"
+                    content='&lt;div class="cameraWrapper"&gt;&lt;video autoplay="autoplay" playsinline="playsinline" style="width:100%;max-width:480px;border-radius:0.5rem;background:#000;"&gt;&lt;/video&gt;&lt;canvas style="display:none;"&gt;&lt;/canvas&gt;&lt;/div&gt;'/>
+
+                <VBox id="photoPreviewContainer" class="sapUiSmallMarginTop" visible="{camera>/hasPhoto}">
+                    <Title id="photoPreviewTitle" text="{i18n>photoPreviewTitle}" level="H6"/>
+                    <Image id="photoPreviewImage" src="{camera>/photoSrc}" width="100%" densityAware="false" decorative="false" alt="{i18n>photoPreviewAlt}"/>
+                </VBox>
+            </VBox>
+        </content>
     </Page>
 </mvc:View>
